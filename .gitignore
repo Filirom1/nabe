@@ -1,2 +1,4 @@
 docco
+docs
 lib/ext/*/node_modules
+node_modules
