@@ -15,7 +15,9 @@
       "ext": "markdown",
       "projects": [
         "nabe:README.markdown",
-        "nabe-demo:README.markdown"
+        "nabe-demo:README.markdown",
+        "backnode:readme.md",
+        "h5bp-docs:readme.md"
       ]
     }
   }
