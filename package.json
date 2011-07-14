@@ -1,8 +1,8 @@
 {
   "author": "Mickael Daniel",
   "name": "nabe",
-  "version": "0.0.1",
-  "description": "git-powered, minimalist blog engine for coders",
+  "version": "0.1.0",
+  "description": "git-powered, minimalist blog engine built right on top of connect",
   "keywords" : ["blog", "git"],
   "homepage": "https://github.com/mklabs/nabe",
   "repository": {
