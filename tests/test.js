@@ -62,7 +62,6 @@ suite.discuss('When using application/json in any request')
     
   // should respond with description
   .get('/this/route/does/not/exist/')
-    .expect(200, {description: 'a simple example of a pluggable connect layer'})
-    .export(module);
+  .export(module);
     
     
