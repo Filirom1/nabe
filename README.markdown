@@ -248,3 +248,5 @@ Also, a lot of ideas and inspiration is coming from:
       TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
      0. You just DO WHAT THE FUCK YOU WANT TO.
+     
+#K33G est passé par là ;) LOL je suis trop c... désolé
