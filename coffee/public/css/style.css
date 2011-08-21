@@ -242,3 +242,13 @@ div.twipsy .twipsy-arrow{position:absolute;width:0;height:0;}
   border-bottom: 1px solid #bada55;
   padding: 3em 0 1em 0;
 }
+
+body h1 a,
+body h2 a,
+body h3 a,
+body h4 a,
+body h5 a,
+body h6 a {
+  color: #444;
+  font-weight: bolder;
+}
