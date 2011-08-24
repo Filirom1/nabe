@@ -27,3 +27,5 @@ And just to prove that CoffeeScript is beautiful, I give you a snippet of code :
     
     p = new Personn()
     console.log p.sayHello()
+
+
