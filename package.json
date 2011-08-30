@@ -18,7 +18,8 @@
     "yaml": "0.1.2",
     "globalize": "0.1.0a2",
     "mustache":  "0.3.1-dev",
-    "express": "2.4.5"
+    "express": "2.4.5",
+    "coffee-script": "1.1.2"
   },
   "devDependencies": {
     "vows": "0.5.8",
