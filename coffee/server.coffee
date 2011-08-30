@@ -32,7 +32,7 @@ config =
   title: process.cwd().split('/')[-1..][0]
   root: 'index'
   url: 'http://localhost'
-  port: 8080
+  port: process.env.PORT || 8080
   ext: 'md',
   path: 
     public: path.join __dirname, 'public'
