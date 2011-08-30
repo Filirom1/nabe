@@ -138,7 +138,7 @@ class Article extends EventEmitter
       html = md parts[1..].join('\n')
       
       data = { 
-        title: meta.title or meta.Title or file
+        title: meta.title or meta.Title or file.replace(/\..*/g, '').replace(/-/g, ' ').replace(/\b[a-z]/g, (word) -> word.toUpperCase())
         date : meta.date or meta.Date
         file: file.replace(/\..+/, '')
         content: content
