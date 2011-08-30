@@ -15,6 +15,7 @@ Mustache = require('mustache')
 express = require('express')
 md = require('github-flavored-markdown').parse
 yaml = require('yaml')
+relativeDate = require('./lib/relativeDate')
 
 # ### config hash object
 # * author
@@ -148,7 +149,7 @@ class Article extends EventEmitter
           .filter((it) -> return it.key isnt 'title')
           .map((it) -> 
             isDate = /date/i.test(it.key)
-            {key: it.key, value: if isDate then config.date(config.parse(it.value)) else it.value}
+            {key: it.key, value: if isDate then relativeDate(config.parse(it.value)) else it.value}
           )
       }
       
