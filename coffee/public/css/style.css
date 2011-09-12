@@ -290,3 +290,7 @@ header {
   background-image:         linear-gradient(top, #f7f7f7, #ffffff);
             filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f7f7f7', EndColorStr='#ffffff'); /* IE6–IE9 */
 }
+
+footer{
+  text-align: right;
+}
