@@ -12,7 +12,6 @@ path = require('path')
 EventEmitter = require('events').EventEmitter
 globalize = require('globalize')
 Mustache = require('mustache')
-stache = require('stache')
 express = require('express')
 md = require('github-flavored-markdown').parse
 yaml = require('yaml')
@@ -68,10 +67,9 @@ class Server
             locals[name]
     }
     
-    app.register ".html", stache
+    app.register ".mustache", require('stache')
     app.set 'views', @config.path.templates
-    app.set 'view engine', 'html'
-    app.set 'view options', extension: '.html'
+    app.set 'view engine', 'mustache'
     
     @register @routes
       
@@ -94,23 +92,30 @@ class Server
 class Site extends Server
   routes: {
     '/': 'index',
-    '/article/:name': 'article'
+    '/article/:name': 'article',
+    '/feed.xml': 'feed'
   }
   
   index: (req, res, next) -> 
     new Repo().articles()
       .on 'end', (articles) -> 
-        res.render 'index', {
+        res.render 'index',
           articles: articles
-        }
+  
+  feed: (req, res, next) -> 
+    new Repo().articles()
+      .on 'end', (articles) -> 
+        res.contentType 'text/xml'
+        res.render 'feed',
+          articles: articles,
+          layout: false
   
   article: (req, res, next) -> 
     new Article()
-      .load("#{req.params.name}.#{config.ext}")
-      .on('error', (e) -> next(e))
-      .on('data', (article) -> 
+      .load "#{req.params.name}.#{config.ext}"
+      .on 'error', (e) -> next(e)
+      .on 'data', (article) ->
         res.render 'article', article
-      )
      
 
 # ### Article class
