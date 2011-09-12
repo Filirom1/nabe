@@ -112,11 +112,11 @@ class Site extends Server
   
   article: (req, res, next) -> 
     new Article()
-      .load "#{req.params.name}.#{config.ext}"
-      .on 'error', (e) -> next(e)
-      .on 'data', (article) ->
+      .load("#{req.params.name}.#{config.ext}")
+      .on('error', (e) -> next(e))
+      .on('data', (article) ->
         res.render 'article', article
-     
+      )
 
 # ### Article class
 # articles are EventEmitter instances. They expose a single
