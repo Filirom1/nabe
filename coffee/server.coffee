@@ -12,6 +12,7 @@ path = require('path')
 EventEmitter = require('events').EventEmitter
 globalize = require('globalize')
 Mustache = require('mustache')
+stache = require('stache')
 express = require('express')
 md = require('github-flavored-markdown').parse
 yaml = require('yaml')
@@ -43,8 +44,7 @@ config =
     globalize.format date, 'f'
   parse: (str) ->
     globalize.parseDate str, 'yyyy/MM/dd'
-  toHtml: (str, data) -> 
-    data ?= {}
+  toHtml: (str, data = {}) -> 
     Mustache.to_html(str, data)
   
 # ### Server class
@@ -69,15 +69,10 @@ class Server
             locals[name]
     }
     
-    app.register '.html', {
-      compile: (str, options) ->
-        (locals) ->
-          config.toHtml str, locals
-    }
-    
-    
+    app.register ".html", stache
     app.set 'views', @config.path.templates
     app.set 'view engine', 'html'
+    app.set 'view options', extension: '.html'
     
     @register @routes
       
